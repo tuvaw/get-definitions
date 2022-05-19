@@ -1,38 +1,39 @@
 import SearchList from './searchList'
+import Synonyms from './synonyms';
+import Memes from './memes';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-
-    <Container>
-      <h1>Hitta synonymer</h1>
-      <Row>
-        <>
-          <Form.Label htmlFor="inputSearch">Vilket ord vill du söka på?</Form.Label>
-          <Form.Control
-            type="input"
-            id="inputSearch"
-            aria-describedby="searchHelpBlock"
-          />
-          <Form.Text id="searchHelpBlock" muted>
-            Ange vilket ord du vill hitta synonymer på så bjuder vi på en gif!
-          </Form.Text>
-        </>
-      </Row>
-      <Row>
-        <h3>Visa sökningen</h3>
-        <Col sm>Ord</Col>
-        <Col sm>Gif</Col>
-      </Row>
-      <Row>
-        <h3>Senaste sökningar</h3>
-        <SearchList />
-          <Col sm>sm=true</Col>
-          <Col sm>sm=true</Col>
-          <Col sm>sm=true</Col>
-      </Row>
-    </Container>
+      <Container>
+        <h1>Get synynoms</h1>
+        <Row>
+          <>
+            <Form.Label htmlFor="inputSearch">What word are you looking for?</Form.Label>
+            <Form.Control
+              type="input"
+              id="inputSearch"
+              aria-describedby="searchHelpBlock"
+            />
+            <Form.Text id="searchHelpBlock" muted>
+              Enter the word you want to find synonyms for and we'll give you a gif in return!
+            </Form.Text>
+          </>
+        </Row>
+        <Row>
+          <h3>Visa sökningen</h3>
+            <Col sm={3}><Synonyms />Ord</Col>
+            <Col sm={9}><Memes />Gif</Col>
+        </Row>
+        <Row>
+          <h3>Latest searches</h3>
+          <SearchList />
+            <Col sm>Ord</Col>
+            <Col sm>Ord</Col>
+            <Col sm>Ord</Col>
+        </Row>
+      </Container>
     </div>
   );
 }
