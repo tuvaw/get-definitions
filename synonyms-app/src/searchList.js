@@ -6,13 +6,17 @@ export default function SearchList() {
     const [searches, setSearch] = useState([])
     
     function addItem(event) {
-        const newId = searches.legnth > 0 ? searches[searches.legnth - 1].id +1 : 1;
+        if (event.keyCode === 13){
+          const newId = searches.legnth > 0 ? searches[searches.legnth - 1].id +1 : 1;
         setSearch([...searches, {
             id: newId,
-            title: inputRef.current.value,
+            title: inputRef.current.value,  
+       
+        
         }])
         inputRef.current.value="";
     }
+ }
     function deleteItem(id) {
         setSearch(searches.filter((item) => item.id !== id));
     }
