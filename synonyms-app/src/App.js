@@ -1,9 +1,16 @@
 import SearchList from './searchList'
 import Synonyms from './synonyms';
+import addSynonyms from './synonyms';
 import Memes from './memes';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
 function App() {
+
+    function search(event) {
+      let input = this.inputSearch
+      addSynonyms(input)
+    }
+
   return (
     <div className="App">
       <Container>
@@ -12,6 +19,7 @@ function App() {
           <>
             <Form.Label htmlFor="inputSearch">What word are you looking for?</Form.Label>
             <Form.Control
+              onKeyUp={search}
               type="input"
               id="inputSearch"
               aria-describedby="searchHelpBlock"
@@ -37,5 +45,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;
