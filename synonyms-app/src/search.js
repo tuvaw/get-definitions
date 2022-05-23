@@ -1,7 +1,8 @@
 import React from "react";
 
 export default function Search(props) {
-    console.log(props);
+    localStorage.getItem(props);
+    JSON.parse(localStorage.getItem('props'));
 
     return(
         <li className="list-group-item">

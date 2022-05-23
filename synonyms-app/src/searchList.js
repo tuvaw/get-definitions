@@ -3,27 +3,32 @@ import Search from './search';
 
 export default function SearchList() {
     const inputRef = useRef();
-    const [searches, setSearch] = useState([])
+    const [searches, setItem] = useState([]);
     
     function addItem(event) {
-        if (event.keyCode === 13){
-          const newId = searches.legnth > 0 ? searches[searches.legnth - 1].id +1 : 1;
-        setSearch([...searches, {
-            id: newId,
-            title: inputRef.current.value,  
-       
-        
-        }])
+        if (event.keyCode === 13) {
+            const title = $(input.cuttent).val();
+            const newId = searches.legnth > 0 ? searches[searches.length - 1].id +1 : 1;
+            localStorage.setItem(['searches', JSON.stringify(searches) {
+                id: newId,
+                title: title,  
+        }]);
         inputRef.current.value="";
     }
  }
     function deleteItem(id) {
-        setSearch(searches.filter((item) => item.id !== id));
+        let items =JSON.parse(localStorage.getItem("item"));
+        items = items.filter((item) => item.id !== id);
+        localStorage.setItem("item", JSON.stringify(items));
+        if (items.length === 0) {
+          localStorage.removeItem("item");
+        }
     }
+    
     return(
         <div>
             <ul className="list-group">
-                {searches.map(search => <Search key={search.id} item={search} deleteItem={deleteItem} />)}
+                {searches &&(search => <Search key={search.id} item={search} deleteItem={deleteItem} />)}
             </ul>
         </div>
     )
