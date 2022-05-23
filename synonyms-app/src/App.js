@@ -12,6 +12,7 @@ function App() {
           <>
             <Form.Label htmlFor="inputSearch">What word are you looking for?</Form.Label>
             <Form.Control
+            onKeyUp={Memes}
               type="input"
               id="inputSearch"
               aria-describedby="searchHelpBlock"
