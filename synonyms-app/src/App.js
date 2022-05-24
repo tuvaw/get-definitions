@@ -4,6 +4,14 @@ import Memes from './memes';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
 function App() {
+
+  function search(event) {
+    let input = event.target.value;
+    Memes.addMemes(input)
+    //console.log(event.target.value);
+    //addSynonym(input)
+  }
+
   return (
     <div className="App">
       <Container>
@@ -12,7 +20,7 @@ function App() {
           <>
             <Form.Label htmlFor="inputSearch">What word are you looking for?</Form.Label>
             <Form.Control
-            onKeyUp={Memes}
+            onKeyUp={search}
               type="input"
               id="inputSearch"
               aria-describedby="searchHelpBlock"
