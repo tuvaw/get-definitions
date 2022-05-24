@@ -7,11 +7,10 @@ export default function SearchList() {
     
     function addItem(event) {
         if (event.keyCode === 13) {
-            const title = $(input.cuttent).val();
             const newId = searches.legnth > 0 ? searches[searches.length - 1].id +1 : 1;
             localStorage.setItem(['searches', JSON.stringify(searches) {
                 id: newId,
-                title: title,  
+                title: inputRef.current.value,  
         }]);
         inputRef.current.value="";
     }
