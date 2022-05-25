@@ -1,16 +1,7 @@
-import $ from "jquery"
+//import $ from "jquery"
 
-export default function Synonyms() {
-    console.log("hallo")
-    $.ajax({
-        url: "https://synonymord.se/api/?q=" + "hus",
-        method: 'GET',
-        dataType: "JSON"           
-    }).done(function(data, props) {
-        console.log(data)
-
-    });
-    /*const inputRef = useRef();
+/*export default function Synonyms() {
+    const inputRef = useRef();
         
         function addSynonym(event) {
             event.preventDefault();
@@ -32,6 +23,6 @@ export default function Synonyms() {
                     }
                 });
             }
-    }*/
+    }
 
-};
+};*/
