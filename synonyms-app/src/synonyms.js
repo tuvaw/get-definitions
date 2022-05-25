@@ -1,28 +1,30 @@
 import $ from "jquery"
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function Synonyms() {
-    const inputRef = useRef();
+export default function Synonyms(props) {
+    const [synonyms, setSynonyms] = useState([]);
         
-        function addSynonym(event) {
-            event.preventDefault();
-            if (event.keyCode === 13){
-                $.ajax({
-                    url: "synonymord.se/api/?q=" + inputRef,
-                    method: 'GET',
-                    dataType: "JSON"           
-                }).done(function(data, props) {
-                    for (let i = 0; i < data.Search.length; i++) {
-                        return (
-                            <div>
-                                <h2>{ props.item.title }</h2>
-                                <li className="list-group-item">
-                                    <ul>${data.Search[i].synonyms}</ul>
-                                </li>
-                            </div>
-                        )
-                    }
-                });
-            }
-    } 
+        function getSynonyms() {
+            $.ajax({
+                url: "https://languagetools.p.rapidapi.com/synonyms/" + props.searchString,
+                method: 'GET',
+                dataType: "JSON",
+                headers: {
+                    'X-RapidAPI-Host': 'languagetools.p.rapidapi.com',
+                    'X-RapidAPI-Key': 'ecd0c39411mshf8a5e424943fe73p10992fjsn3ad2d3b2759b'
+                }
+            }).done(function(data) {
+                setSynonyms(data.data);
+            });
+        }
+
+        useEffect(function() {
+            getSynonyms();
+        }, [props.searchString]);
+
+        return (
+            <div>
+                {synonyms.map(synonym => <ul className="list-group">{synonym.synonyms.original.url}</ul>)}
+            </div>
+        )
 };
