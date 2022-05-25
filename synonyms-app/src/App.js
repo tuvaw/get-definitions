@@ -1,5 +1,5 @@
 import SearchList from './searchList'
-import Synonyms from './synonyms';
+import Definitions from './definitions';
 import Memes from './memes';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import { useState } from 'react';
@@ -35,8 +35,8 @@ function App() {
         </Row>
         <Row>
           <h3>Visa sökningen</h3>
-            <Col sm={3}><Synonyms searchString={searchString}/>Ord</Col>
-            <Col sm={9}><Memes searchString={searchString}/>Gif</Col>
+            <Col sm={3}><Definitions searchString={searchString}/></Col>
+            <Col sm={9}><Memes searchString={searchString}/></Col>
         </Row>
         <Row>
           <h3>Latest searches</h3>
