@@ -2,14 +2,17 @@ import SearchList from './searchList'
 import Synonyms from './synonyms';
 import Memes from './memes';
 import { Container, Row, Col, Form } from 'react-bootstrap';
+import { useState } from 'react';
 
 function App() {
 
+  const [searchString, setSearchString] = useState("");
+
   function search(event) {
-    let input = event.target.value;
-    Memes.addMemes(input)
-    //console.log(event.target.value);
-    //addSynonym(input)
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      setSearchString(event.target.value);
+    }
   }
 
   return (
@@ -33,7 +36,7 @@ function App() {
         <Row>
           <h3>Visa sökningen</h3>
             <Col sm={3}><Synonyms />Ord</Col>
-            <Col sm={9}><Memes />Gif</Col>
+            <Col sm={9}><Memes searchString={searchString}/>Gif</Col>
         </Row>
         <Row>
           <h3>Latest searches</h3>
