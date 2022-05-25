@@ -1,33 +1,38 @@
-import React, { useState, useRef} from "react"
-import Search from './search';
+import React, { useEffect, useState } from "react"
+import List from './list';
 
-export default function SearchList() {
-    const inputRef = useRef();
+export default function SearchList(props) {
     const [searches, setItem] = useState([]);
-    
-    function addItem(event) {
-        if (event.keyCode === 13) {
-            const newId = searches.legnth > 0 ? searches[searches.length - 1].id +1 : 1;
-            localStorage.setItem(['searches', JSON.stringify(searches) {
-                id: newId,
-                title: inputRef.current.value,  
-        }]);
-        inputRef.current.value="";
-    }
- }
-    function deleteItem(id) {
-        let items =JSON.parse(localStorage.getItem("item"));
-        items = items.filter((item) => item.id !== id);
-        localStorage.setItem("item", JSON.stringify(items));
-        if (items.length === 0) {
-          localStorage.removeItem("item");
+
+    function getList() {
+        let searches = localStorage.getItem("searches");
+        if (searches == null){
+            localStorage.setItem('searches', JSON.stringify([]));
+            return [];
+        } else {
+            return JSON.parse(searches)
         }
     }
+    
+    function saveItem() {
+        let searches = getList()
+        if (props.searchString >= "1"){
+          searches.push({
+            title: props.searchString
+        })
+        localStorage.setItem('searches', JSON.stringify(searches));
+        }
+    }
+        
+
+    useEffect(function() {
+        saveItem();
+    }, [props.searchString]);
     
     return(
         <div>
             <ul className="list-group">
-                {searches &&(search => <Search key={search.id} item={search} deleteItem={deleteItem} />)}
+                {searches.map (search => <List key={search.title} item={search}/>)}
             </ul>
         </div>
     )

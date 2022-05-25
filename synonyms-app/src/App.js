@@ -1,9 +1,19 @@
-import SearchList from './searchList'
+import React, { useState } from 'react';
+import SearchList from './searchList';
 import Synonyms from './synonyms';
 import Memes from './memes';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 
 function App() {
+
+  const [searchString, setSearchString] = useState("");
+
+  function search(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      setSearchString(event.target.value);
+    }
+  }
 
   return (
     <div className="App">
@@ -13,7 +23,7 @@ function App() {
           <>  
             <Form.Label htmlFor="inputSearch">What word are you looking for?</Form.Label>
             <Form.Control
-              onKeyUp={addItem}
+              onKeyUp={search}
               type="input"
               id="inputSearch"
               aria-describedby="searchHelpBlock"
@@ -30,7 +40,7 @@ function App() {
         </Row>
         <Row>
           <h3>Latest searches</h3>
-          <SearchList />
+            <SearchList searchString={searchString} />
             <Col sm>Ord</Col>
             <Col sm>Ord</Col>
             <Col sm>Ord</Col>
