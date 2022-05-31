@@ -38,7 +38,8 @@ function App() {
             <Col sm={5}><Gifs searchString={searchString}/></Col>
         </Row>
         <Row>
-          <h3>Latest searches</h3>
+          <h3>Your latest searches</h3>
+          <p>(Double click to remove a search)</p>
             <Col sm><SearchList searchString={searchString} /></Col>
         </Row>
       </Container>
