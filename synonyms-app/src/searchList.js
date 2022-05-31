@@ -30,7 +30,7 @@ export default function SearchList(props) {
         let searches =JSON.parse(localStorage.getItem("searches"));
         let filtered = searches.filter(search => search.id !== id);
         localStorage.setItem("searches", JSON.stringify(filtered));
-        window.location.reload();
+        setSearches(searches);
         
     }
 

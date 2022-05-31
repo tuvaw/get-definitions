@@ -8,3 +8,13 @@ img {
     padding-top: 15px;
     font-size: larger;
 }
+
+#def {
+    padding-top: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+.gif {
+    border-radius: 10px;
+}

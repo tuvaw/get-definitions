@@ -20,7 +20,7 @@ export default function Definitions(props) {
 
         return (
             <div>
-                <p>{definitions}</p>
+                <p id="def">{definitions}</p>
             </div>
         )
 };

@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <h1>Get synynoms</h1>
+        <h1>Get Your Definition!</h1>
         <Row>
           <>  
             <Form.Label htmlFor="inputSearch">What word are you looking for?</Form.Label>
@@ -29,14 +29,13 @@ function App() {
               aria-describedby="searchHelpBlock"
             />
             <Form.Text id="searchHelpBlock" muted>
-              Enter the word you want to find synonyms for and we'll give you a gif in return!
+              Enter the word you want to find a definition for and we'll give you a gif in return!
             </Form.Text>
           </>
         </Row>
         <Row>
-          <h3>Visa sökningen</h3>
-            <Col sm={3}><Definitions searchString={searchString}/></Col>
-            <Col sm={9}><Gifs searchString={searchString}/></Col>
+            <Col sm={7}><Definitions searchString={searchString}/></Col>
+            <Col sm={5}><Gifs searchString={searchString}/></Col>
         </Row>
         <Row>
           <h3>Latest searches</h3>
