@@ -40,10 +40,7 @@ function App() {
         </Row>
         <Row>
           <h3>Latest searches</h3>
-            <SearchList searchString={searchString} />
-            <Col sm>Ord</Col>
-            <Col sm>Ord</Col>
-            <Col sm>Ord</Col>
+            <Col sm><SearchList searchString={searchString} /></Col>
         </Row>
       </Container>
     </div>
