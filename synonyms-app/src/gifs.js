@@ -20,7 +20,7 @@ export default function Gifs(props) {
 
     return (
         <div>
-            {gifs.map(gif => <img src={gif.images.original.url} alt='GIF' width={400} height={400} /> )}
+            {gifs.map(gif => <img src={gif.images.original.url} alt='GIF' width={300} height={400} /> )}
         </div>
     )
 };
