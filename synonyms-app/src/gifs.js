@@ -1,27 +1,26 @@
 import $ from "jquery"
 import React, { useEffect, useState } from 'react';
 
-export default function Memes(props) {
-    const [memes, setMemes] = useState([]);
+export default function Gifs(props) {
+    const [gifs, setGifs] = useState([]);
         
-    function getMemes() {
+    function getGifs() {
         $.ajax({
             url: "https://api.giphy.com/v1/gifs/search?api_key=iKWDKWDKsyoOtFEfkb8EzQFO7QuP2LPr&limit=1&q=" + props.searchString,
             method: 'GET',
-            dataType: "JSON",
-            limit: "1"        
+            dataType: "JSON"     
         }).done(function(data) {
-            setMemes(data.data);
+            setGifs(data.data);
         });
     }
 
     useEffect(function() {
-        getMemes();
+        getGifs();
     }, [props.searchString]);
 
     return (
         <div>
-            {memes.map(meme => <img src={meme.images.original.url} alt='GIF' /> )}
+            {gifs.map(gif => <img src={gif.images.original.url} alt='GIF' width={400} height={400} /> )}
         </div>
     )
 };
