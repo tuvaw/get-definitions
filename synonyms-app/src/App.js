@@ -1,6 +1,6 @@
 import SearchList from './searchList'
 import Definitions from './definitions';
-import Memes from './memes';
+import Gifs from './gifs';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import { useState } from 'react';
 
@@ -23,7 +23,7 @@ function App() {
           <>  
             <Form.Label htmlFor="inputSearch">What word are you looking for?</Form.Label>
             <Form.Control
-              onKeyUp={search}
+            onKeyUp={search}
               type="input"
               id="inputSearch"
               aria-describedby="searchHelpBlock"
@@ -36,7 +36,7 @@ function App() {
         <Row>
           <h3>Visa sökningen</h3>
             <Col sm={3}><Definitions searchString={searchString}/></Col>
-            <Col sm={9}><Memes searchString={searchString}/></Col>
+            <Col sm={9}><Gifs searchString={searchString}/></Col>
         </Row>
         <Row>
           <h3>Latest searches</h3>
