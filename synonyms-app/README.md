@@ -1,3 +1,19 @@
+Get your definition
+Beskrivning: 
+Gruppen har valt att skapa en webbsida där användaren kan skriva in ett sökord, därefter får användaren en definition och en gif på köpet. Sökningarna sparas i en lista där användaren även kan ta bort gamla sökningar som denne känner att dem inte längre behövs.
+
+Ramverk: Till detta projektet har gruppen valt att arbeta med React. React och Angular är två väldigt lika ramverk, båda passar till mobilapplikation såväl som hemsidor, men Angular fungerar bättre till komplexa appar i jämförelse till React. Dock så har Angular en större och svårare inlärningskurva vilket gör att den är svårare att komma igång mer. Ifall man då jämför React och Vie så kan detta vara ett svårare val eftersom Vue är ett passande ramverk till små projekt som detta, det har även ett växande community och har därför gått om Angular i populäritet. Dessutom är Vue ett ramverk som är väldigt lätt att lära sig och hänvisas därför ofta till oerfarna programmerare. Men eftersom React fortfarande är ett större ramverk, gruppen har jobbat med det innan vilket gör det lättare och att gruppen anser att dem troligtvis kommer ha nytta av i framtiden.
+
+API:
+I detta projekt har gruppen valt att använda två olika APIer, ett som hämtar olika definitioner och ett som hämtar olika GIFs, båda baserat på sökordet.
+
+Dictionary API:
+https://dictionaryapi.dev/
+
+Giphy developers:
+https://developers.giphy.com/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
