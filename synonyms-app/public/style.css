@@ -9,8 +9,14 @@ img {
     font-size: larger;
 }
 
+.col-sm-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #def {
     padding-top: 100px;
+    padding-bottom: 100px;
     margin: auto;
     text-align: center;
 }
