@@ -39,7 +39,6 @@ function App() {
         </Row>
         <Row>
           <h3>Your latest searches</h3>
-          <p>(Double click to remove a search)</p>
             <Col sm><SearchList searchString={searchString} /></Col>
         </Row>
       </Container>

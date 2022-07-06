@@ -27,11 +27,11 @@ export default function SearchList(props) {
         }
     }
     function deleteItem(id){
-        let searches =JSON.parse(localStorage.getItem("searches"));
+        let searches = JSON.parse(localStorage.getItem("searches"));
         let filtered = searches.filter(search => search.id !== id);
         localStorage.setItem("searches", JSON.stringify(filtered));
         setSearches(searches);
-        
+        window.location.reload()
     }
 
     useEffect(function() {
